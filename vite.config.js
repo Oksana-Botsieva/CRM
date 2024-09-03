@@ -7,7 +7,9 @@ import { URL } from 'url';
 
 import handlebars from 'vite-plugin-handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import stylelint from 'stylelint';
 import stylelintPlugin from 'vite-plugin-stylelint';
+import autoprefixer from 'autoprefixer';
 
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
@@ -37,6 +39,17 @@ export default defineConfig({
 
   esbuild: {
     minifyIdentifiers: false, // Отключаем замену идентификаторов
+  },
+
+  css: {
+    postcss: {
+      plugins: [
+        autoprefixer(),
+        stylelint({
+          fix: true,
+        }),
+      ],
+    },
   },
 
   plugins: [
