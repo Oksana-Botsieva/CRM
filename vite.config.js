@@ -2,13 +2,17 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import fg from 'fast-glob';
 import { fileURLToPath } from 'url';
-import path from 'node:path';
+import path, { dirname } from 'path';
+import { URL } from 'url';
 
 import handlebars from 'vite-plugin-handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const pageData = {
   '/index.html': home,
@@ -114,10 +118,7 @@ export default defineConfig({
         fg
           .sync('src/**/*.html')
           .map((file) => [
-            path.relative(
-              'src',
-              file.slice(0, file.length - path.extname(file).length),
-            ),
+            path.relative('src', file.slice(0, file.length - path.extname(file).length)),
             fileURLToPath(new URL(file, import.meta.url)),
           ]),
       ),
