@@ -7,6 +7,7 @@ import { URL } from 'url';
 
 import handlebars from 'vite-plugin-handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import stylelintPlugin from 'vite-plugin-stylelint';
 
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
@@ -104,6 +105,12 @@ export default defineConfig({
         // https://sharp.pixelplumbing.com/api-output#avif
         lossless: true,
       },
+    }),
+    stylelintPlugin({
+      files: ['src/**/*.css', 'src/**/*.scss'],
+      fix: true,
+      emitError: true,
+      emitWarning: true,
     }),
   ],
 
