@@ -10,8 +10,17 @@
   <body>
     {{> header}}
 
-    {{#each this.testArr}}
-      <p>{{this}}</p>
-    {{/each}}
+    <div class="cycle-example" >
+      {{#each this.testArr}}
+      <span>{{this}}</span>
+      {{/each}}
+    </div>
+    
+    <div class="image">
+      <img src="./assets/images/programmer.jpg" alt="">
+    </div>
+    <div class="image">
+      <img src="./assets/images/mountin.jpg" alt="">
+    </div>
   </body>
 </html>
