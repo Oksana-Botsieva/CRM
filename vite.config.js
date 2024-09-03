@@ -15,7 +15,7 @@ const pageData = {
 };
 
 export default defineConfig({
-  target: ['es2015'],
+  target: ['es2016'],
 
   resolve: {
     alias: {
@@ -75,19 +75,19 @@ export default defineConfig({
       },
       png: {
         // https://sharp.pixelplumbing.com/api-output#png
-        quality: 85,
+        quality: 80,
       },
       jpeg: {
         // https://sharp.pixelplumbing.com/api-output#jpeg
-        quality: 85,
+        quality: 80,
       },
       jpg: {
         // https://sharp.pixelplumbing.com/api-output#jpeg
-        quality: 85,
+        quality: 80,
       },
       tiff: {
         // https://sharp.pixelplumbing.com/api-output#tiff
-        quality: 85,
+        quality: 80,
       },
       // gif does not support lossless compression
       // https://sharp.pixelplumbing.com/api-output#gif
@@ -104,7 +104,9 @@ export default defineConfig({
   ],
 
   build: {
+    cssCodeSplit: false,
     minify: false,
+    sourcemap: 'inline',
     outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
@@ -131,12 +133,10 @@ export default defineConfig({
           } else if (/svg/.test(extType)) {
             extType = 'svg';
           }
-          return extType !== 'css'
-            ? `${extType}/[name][extname]`
-            : `${extType}/[name]-[hash][extname]`;
+          return `${extType}/[name][extname]`;
         },
-        chunkFileNames: 'js/[name]-[hash].js',
-        entryFileNames: 'js/[name]-[hash].js',
+        chunkFileNames: 'js/[name].js',
+        entryFileNames: () => 'js/main.js',
       },
     },
   },
