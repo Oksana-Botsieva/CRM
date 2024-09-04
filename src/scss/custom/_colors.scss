@@ -1,0 +1,12 @@
+@use "sass:color";
+
+$primary: #7f00ff;
+$secondary: #ffff00;
+$background: #1f1f1f;
+
+$text: #fff;
+$headings: $primary;
+$border: color.adjust($primary, $lightness: 20%);
+
+$hover: color.adjust($primary, $lightness: -10%);
+$active: color.adjust($primary, $lightness: -20%);

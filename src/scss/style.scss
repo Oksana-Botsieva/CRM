@@ -1,7 +1,17 @@
+//global
 @import "./global/null-styles";
+@import "./global/mixins";
+@import "./global//functions";
+
+// custom
+@import "./custom/variables";
+@import "./custom/colors";
+@import "./custom/fonts";
+@import "./custom/typography";
+@import "./custom/media";
 
 body {
-  background-color: #9acd32;
+  background-color: $background;
 }
 
 .cycle-example {

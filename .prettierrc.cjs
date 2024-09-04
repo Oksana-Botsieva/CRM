@@ -8,6 +8,7 @@ module.exports = {
   bracketSpacing: true,
   arrowParens: 'always',
   proseWrap: 'never',
+  htmlWhitespaceSensitivity: 'ignore',
   overrides: [
     {
       files: ['**/*.css', '**/*.scss', '**/*.html', '**/*.hbs'],
