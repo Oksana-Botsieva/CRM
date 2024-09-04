@@ -7,9 +7,8 @@ import { URL } from 'url';
 
 import handlebars from 'vite-plugin-handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
-import stylelint from 'stylelint';
-import stylelintPlugin from 'vite-plugin-stylelint';
-import autoprefixer from 'autoprefixer';
+// import stylelintPlugin from 'vite-plugin-stylelint';
+// import autoprefixer from 'autoprefixer';
 
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
@@ -22,13 +21,13 @@ const pageData = {
 };
 
 export default defineConfig({
-  target: ['es2016'],
+  // target: ['es2016'],
 
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-    },
-  },
+  // resolve: {
+  //   alias: {
+  //     '@': resolve(__dirname, 'src'),
+  //   },
+  // },
 
   root: resolve(__dirname, 'src'),
 
@@ -42,13 +41,14 @@ export default defineConfig({
   },
 
   css: {
-    postcss: {
-      plugins: [
-        autoprefixer(),
-        stylelint({
-          fix: true,
-        }),
-      ],
+    devSourcemap: true,
+    // postcss: {
+    //   plugins: [autoprefixer()],
+    // },
+    preprocessorOptions: {
+      scss: {
+        sourceMap: true,
+      },
     },
   },
 
@@ -119,12 +119,12 @@ export default defineConfig({
         lossless: true,
       },
     }),
-    stylelintPlugin({
-      files: ['src/**/*.css', 'src/**/*.scss'],
-      fix: true,
-      emitError: true,
-      emitWarning: true,
-    }),
+    // stylelintPlugin({
+    //   files: ['src/**/*.css', 'src/**/*.scss'],
+    //   fix: false,
+    //   emitError: true,
+    //   emitWarning: true,
+    // }),
   ],
 
   build: {

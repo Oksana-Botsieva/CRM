@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "lint": "eslint --fix . && prettier --write .",
-    "dev": "npm run lint && vite",
+    "dev": "vite",
     "build": "npm run lint && vite build",
     "preview": "vite preview"
   },
@@ -30,5 +30,8 @@
     "vite-plugin-handlebars": "^2.0.0",
     "vite-plugin-image-optimizer": "^1.1.8",
     "vite-plugin-stylelint": "^5.3.1"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }
