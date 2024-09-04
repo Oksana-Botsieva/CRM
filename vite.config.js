@@ -37,7 +37,7 @@ export default defineConfig({
   },
 
   esbuild: {
-    minifyIdentifiers: false, // Отключаем замену идентификаторов
+    minifyIdentifiers: false,
   },
 
   css: {

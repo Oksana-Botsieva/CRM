@@ -10,33 +10,11 @@
 @import "./custom/typography";
 @import "./custom/media";
 
-body {
-  background-color: $background;
-}
+// base
+@import "./base";
 
-.cycle-example {
-  display: flex;
-  gap: 4px;
+// vendor
 
-  span {
-    &:not(:last-child) {
-      &::after {
-        content: ",";
-      }
-    }
-  }
-}
+// elements
 
-.image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  height: 300px;
-
-  img {
-    width: auto;
-    height: 100%;
-  }
-}
+// components
