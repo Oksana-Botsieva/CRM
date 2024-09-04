@@ -45,11 +45,6 @@ export default defineConfig({
     postcss: {
       plugins: [autoprefixer()],
     },
-    preprocessorOptions: {
-      scss: {
-        sourceMap: true,
-      },
-    },
   },
 
   plugins: [
