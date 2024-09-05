@@ -129,6 +129,7 @@ export default defineConfig({
     outDir: '../dist',
     emptyOutDir: true,
     assetsInlineLimit: 0,
+    polyfillModulePreload: false, // Отключение Module Preload
     rollupOptions: {
       input: Object.fromEntries(
         fg
