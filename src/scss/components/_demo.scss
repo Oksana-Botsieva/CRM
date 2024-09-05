@@ -1,0 +1,30 @@
+.demo {
+  display: flex;
+  align-items: center;
+  width: 100dvw;
+  height: 100dvh;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 60px;
+    align-items: center;
+  }
+
+  &__logos {
+    display: flex;
+    column-gap: 180px;
+    align-items: center;
+    justify-content: center;
+
+    & a {
+      display: block;
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  &__heading {
+    width: fit-content;
+  }
+}
