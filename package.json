@@ -7,6 +7,7 @@
     "> 0.5%, last 2 versions, Firefox ESR, not dead"
   ],
   "scripts": {
+    "prepare": "husky",
     "lint": "eslint --fix . && prettier --write .",
     "dev": "vite",
     "build": "npm run lint && vite build",
@@ -22,6 +23,7 @@
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "fast-glob": "^3.3.2",
+    "husky": "^9.1.5",
     "prettier": "^3.3.3",
     "sass-embedded": "^1.78.0",
     "sftp-sync-deploy": "^0.7.1",
