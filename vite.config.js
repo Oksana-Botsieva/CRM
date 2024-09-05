@@ -128,6 +128,7 @@ export default defineConfig({
     sourcemap: 'inline',
     outDir: '../dist',
     emptyOutDir: true,
+    assetsInlineLimit: 0,
     rollupOptions: {
       input: Object.fromEntries(
         fg
