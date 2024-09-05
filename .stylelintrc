@@ -19,6 +19,7 @@
         "except": ["first-nested", "blockless-after-same-name-blockless"],
         "ignore": ["after-comment", "inside-block"]
       }
-    ]
+    ],
+    "scss/no-global-function-names": null
   }
 }
