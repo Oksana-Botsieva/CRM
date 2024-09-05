@@ -17,6 +17,7 @@
 
 @mixin transition($transitions...) {
   $formatted-transitions: ();
+  $property: ();
 
   @each $transition in $transitions {
     $parts: $transition;
@@ -31,5 +32,6 @@
 
   /* stylelint-disable */
   transition: $formatted-transitions;
+  will-change: $property;
   /* stylelint-enable */
 }
