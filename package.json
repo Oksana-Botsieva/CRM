@@ -10,17 +10,21 @@
     "lint": "eslint --fix . && prettier --write .",
     "dev": "vite",
     "build": "npm run lint && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:demo": "npm run build && node deploy.js --demo",
+    "deploy:prod": "npm run build && node deploy.js --prod"
   },
   "devDependencies": {
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^3.1.0",
     "autoprefixer": "^10.4.20",
+    "dotenv": "^16.4.5",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "fast-glob": "^3.3.2",
     "prettier": "^3.3.3",
     "sass-embedded": "^1.78.0",
+    "sftp-sync-deploy": "^0.7.1",
     "sharp": "^0.33.5",
     "stylelint": "^16.9.0",
     "stylelint-config-clean-order": "^6.1.0",

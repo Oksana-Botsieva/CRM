@@ -11,12 +11,11 @@ export default [
   js.configs.recommended,
   includeIgnoreFile(path.resolve(__dirname, '.gitignore')),
   {
-    files: ['src/**/*'],
+    files: ['src/**/*', 'deploy.js'],
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node,
-        URL: 'readonly',
       },
     },
     rules: {

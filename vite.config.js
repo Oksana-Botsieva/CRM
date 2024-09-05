@@ -5,6 +5,8 @@ import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import { URL } from 'url';
 
+import dotenv from 'dotenv';
+
 import handlebars from 'vite-plugin-handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import stylelintPlugin from 'vite-plugin-stylelint';
@@ -15,6 +17,8 @@ import { home } from './src/stores/home';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, '.env.local') });
 
 const pageData = {
   '/index.html': home,
