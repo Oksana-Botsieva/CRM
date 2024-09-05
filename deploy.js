@@ -15,6 +15,7 @@ const modeIndex = args.indexOf('--demo') !== -1 ? '--demo' : args.indexOf('--pro
 const mode = modeIndex === '--demo' ? 'demo' : modeIndex === '--prod' ? 'prod' : 'demo'; // По умолчанию 'demo'
 
 if (mode !== 'demo' && mode !== 'prod') {
+  // eslint-disable-next-line no-console
   console.error('Укажите корректный режим: --demo или --prod.');
   process.exit(1);
 }
@@ -53,8 +54,10 @@ const options = {
 async function deployFiles() {
   try {
     await deploy(config, options);
+    // eslint-disable-next-line no-console
     console.log('Деплой успешно завершён!');
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error('Ошибка при деплое: ', err);
   }
 }
