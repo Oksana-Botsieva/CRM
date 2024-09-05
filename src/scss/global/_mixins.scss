@@ -1,3 +1,5 @@
+@import "../custom/variables";
+
 @mixin font-face($family, $woff2, $woff, $weight, $local: null) {
   @font-face {
     font-family: $family;
@@ -17,13 +19,14 @@
   $formatted-transitions: ();
 
   @each $transition in $transitions {
-    $parts: split($transition, " ");
-    $property: list.nth($parts, 1);
-    $duration: if(list.length($parts) > 1, list.nth($parts, 2), $transition-duration);
-    $function: if(list.length($parts) > 2, list.nth($parts, 3), $transition-func);
+    $parts: $transition;
+
+    $property: nth($parts, 1);
+    $duration: if(length($parts) > 1, nth($parts, 2), $transition-duration);
+    $function: if(length($parts) > 2, nth($parts, 3), $transition-func);
 
     $formatted-transition: #{$property} #{$duration} #{$function};
-    $formatted-transitions: list.append($formatted-transitions, $formatted-transition, comma);
+    $formatted-transitions: append($formatted-transitions, $formatted-transition, comma);
   }
 
   /* stylelint-disable */
