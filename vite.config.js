@@ -148,14 +148,15 @@ export default defineConfig({
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
           let extType = info[info.length - 1];
+          let path = '';
           if (/webp|jpg|jpeg|svg|gif|tiff|png|ico/i.test(extType)) {
+            const { originalFileName, name } = assetInfo;
+            path = originalFileName.replace('assets/images/', '').replace(name, '');
             extType = 'images';
           } else if (/woff|woff2/.test(extType)) {
             extType = 'fonts';
-          } else if (/svg/.test(extType)) {
-            extType = 'svg';
           }
-          return `${extType}/[name][extname]`;
+          return `${extType}/${path}[name][extname]`;
         },
         chunkFileNames: 'js/[name].js',
         entryFileNames: () => 'js/main.js',
