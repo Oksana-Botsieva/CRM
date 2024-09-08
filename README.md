@@ -17,6 +17,75 @@
 - **Node.js**: v22.8.0
 - **npm**: 9.8.0
 
+## Структура
+
+```bash
+root/
+├── .husky/                           # Скрипты для хуков Git
+├── dist/                             # Сборка проекта
+│   ├── css/                          # Стили
+│   │   └── style.css
+│   ├── fonts/                        # Шрифты
+│   ├── images/                       # Изображения
+│   │   └── icons/                    # Иконки
+│   ├── js/                           # Скрипты
+│   │   └── main.js
+│   ├── index.html                    # Главная страница
+│   └── *.html                        # Другие страницы
+├── node_modules/                     # Зависимости npm
+├── src/                              # Исходный код проекта
+│   ├── assets/                       # Медиа и данные
+│   │   ├── data/                     # Данные
+│   │   ├── fonts/                    # Шрифты
+│   │   └── images/                   # Изображения
+│   │   │   └── icons/                # Иконки
+│   │   │   │   └── *.svg
+│   ├── components/                   # Шаблоны компонентов
+│   │   ├── elements/                 # Шаблоны UI-элементов
+│   │   │   └── *.hbs
+│   │   └── *.hbs
+│   ├── js/                           # Логика приложения
+│   │   ├── components/               # Логика компонентов
+│   │   ├── constants/                # Константы
+│   │   ├── services/                 # Сервисы
+│   │   ├── utils/                    # Утилиты
+│   │   └── main.js                   # Главный скрипт
+│   ├── scss/                         # Стили
+│   │   ├── components/               # Стили компонентов
+│   │   ├── custom/                   # Кастомные стили под проект
+│   │   │   ├── _colors.scss          # Переменные цветов
+│   │   │   ├── _fonts.scss           # Подключение шрифтов
+│   │   │   ├── _media.scss           # Брейкпоинты и миксин для использования
+│   │   │   ├── _typography.scss      # Стили типографики
+│   │   │   ├── _variables.scss       # Прочие переменные под проект
+│   │   │   └── _base.scss            # Базовые стили под проект
+│   │   ├── elements/                 # Стили UI-элементов
+│   │   ├── global/                   # Общие стили
+│   │   │   ├── _functions.scss       # Функции
+│   │   │   ├── _mixins.scss          # Миксины
+│   │   │   └── _null.scss            # Обнуляющие стили
+│   │   ├── vendor/                   # Вендорные стили
+│   │   └── styles.scss               # Главный SCSS файл
+│   ├── stores/                       # Хранилища состояния
+│   │   ├── context.js                # Контекст приложения
+│   │   ├── home.js                   # Логика для страницы Home
+│   │   └── *.js                      # Другие скрипты
+│   ├── index.html                    # Главная страница
+│   └── *.html                        # Другие HTML страницы
+├── .env.local                        # Локальные переменные окружения
+├── .gitignore                        # Исключения для Git
+├── .prettierignore                   # Исключения для Prettier
+├── .prettierrc.cjs                   # Конфигурация Prettier
+├── .stylelintignore                  # Исключения для Stylelint
+├── .stylelintrc                      # Конфигурация Stylelint
+├── deploy.js                         # Скрипт для деплоя
+├── eslint.config.js                  # Конфигурация ESLint
+├── package-lock.json                 # Блокировка зависимостей npm
+├── package.json                      # Конфигурация и зависимости проекта
+├── README.md                         # Документация проекта
+└── vite.config.js                    # Конфигурация Vite
+```
+
 ## Скрипты
 
 Сборка предоставляет следующие скрипты для работы с проектом:
@@ -110,91 +179,22 @@
 Список действий для очистки проекта вручную:
 
 - остановите dev-сервер если он запущен с помощью комбинации клавиш `⌃ Control` + `C` (или `ctrl` + `C` на Windows) в терминале.
-- Удалите файлы шрифтов из `/src/assets/fonts/`.
-- Удалите файлы изображений из `/src/assets/images/`. Директорию `/src/assets/images/icons/` удалять не стоит.
-- Удалите файл `/src/components/demo.hbs`.
-- Очистите тег `<main>` в `/src/index.html`.
-- Удалите строку `<link rel="icon" type="image/svg+xml" href="./assets/images/vite.svg" />` в `/src/index.html`.
-- Удалите файл `/src/js/utils/counter.js`.
-- Удалите импорт и запуск функции `setupCounter` из `/src/js/main.js`.
-- Удалите файл `/src/scss/components/_demo.scss`.
-- Очистите файл `/src/scss/custom/_base.scss`.
-- Очистите файл `/src/scss/custom/_colors.scss` или настройте переменные цветов под ваш проект.
-- Очистите файл `/src/scss/custom/_fonts.scss` или настройте шрифты под ваш проект.
+- удалите файлы шрифтов из `/src/assets/fonts/`.
+- удалите файлы изображений из `/src/assets/images/`. Директорию `/src/assets/images/icons/` удалять не стоит.
+- удалите файл `/src/components/demo.hbs`.
+- очистите тег `<main>` в `/src/index.html`.
+- удалите строку `<link rel="icon" type="image/svg+xml" href="./assets/images/vite.svg" />` в `/src/index.html`.
+- удалите файл `/src/js/utils/counter.js`.
+- удалите импорт и запуск функции `setupCounter` из `/src/js/main.js`.
+- удалите файл `/src/scss/components/_demo.scss`.
+- очистите файл `/src/scss/custom/_base.scss`.
+- очистите файл `/src/scss/custom/_colors.scss` или настройте переменные цветов под ваш проект.
+- очистите файл `/src/scss/custom/_fonts.scss` или настройте шрифты под ваш проект.
   > 💡 Не забудьте о том, что в сборке предусмотрен миксин `font-face` для для подключения шрифта.
 - измените `$breakpoints` в файле `/src/scss/custom/_media.scss` под ваш проект или оставьте как есть.
-- Очистите файл `/src/scss/custom/_typography.scss` или настройте базовую типографику под ваш проект.
-- Очистите файл `/src/scss/custom/_variables.scss` или настройте переменные под ваш проект.
+- очистите файл `/src/scss/custom/_typography.scss` или настройте базовую типографику под ваш проект.
+- очистите файл `/src/scss/custom/_variables.scss` или настройте переменные под ваш проект.
   > ⚠️ Важно! Переменные `$transition-func` и `$transition-duration` используются как значения по умолчанию в миксине `transition`.
-
-## Структура
-
-```bash
-root/
-├── .husky/                           # Скрипты для хуков Git
-├── dist/                             # Сборка проекта
-│   ├── css/                          # Стили
-│   │   └── style.css
-│   ├── fonts/                        # Шрифты
-│   ├── images/                       # Изображения
-│   │   └── icons/                    # Иконки
-│   ├── js/                           # Скрипты
-│   │   └── main.js
-│   ├── index.html                    # Главная страница
-│   └── *.html                        # Другие страницы
-├── node_modules/                     # Зависимости npm
-├── src/                              # Исходный код проекта
-│   ├── assets/                       # Медиа и данные
-│   │   ├── data/                     # Данные
-│   │   ├── fonts/                    # Шрифты
-│   │   └── images/                   # Изображения
-│   │   │   └── icons/                # Иконки
-│   │   │   │   └── *.svg
-│   ├── components/                   # Шаблоны компонентов
-│   │   ├── elements/                 # Шаблоны UI-элементов
-│   │   │   └── *.hbs
-│   │   └── *.hbs
-│   ├── js/                           # Логика приложения
-│   │   ├── components/               # Логика компонентов
-│   │   ├── constants/                # Константы
-│   │   ├── services/                 # Сервисы
-│   │   ├── utils/                    # Утилиты
-│   │   └── main.js                   # Главный скрипт
-│   ├── scss/                         # Стили
-│   │   ├── components/               # Стили компонентов
-│   │   ├── custom/                   # Кастомные стили под проект
-│   │   │   ├── _colors.scss          # Переменные цветов
-│   │   │   ├── _fonts.scss           # Подключение шрифтов
-│   │   │   ├── _media.scss           # Брейкпоинты и миксин для использования
-│   │   │   ├── _typography.scss      # Стили типографики
-│   │   │   ├── _variables.scss       # Прочие переменные под проект
-│   │   │   └── _base.scss            # Базовые стили под проект
-│   │   ├── elements/                 # Стили UI-элементов
-│   │   ├── global/                   # Общие стили
-│   │   │   ├── _functions.scss       # Функции
-│   │   │   ├── _mixins.scss          # Миксины
-│   │   │   └── _null.scss            # Обнуляющие стили
-│   │   ├── vendor/                   # Вендорные стили
-│   │   └── styles.scss               # Главный SCSS файл
-│   ├── stores/                       # Хранилища состояния
-│   │   ├── context.js                # Контекст приложения
-│   │   ├── home.js                   # Логика для страницы Home
-│   │   └── *.js                      # Другие скрипты
-│   ├── index.html                    # Главная страница
-│   └── *.html                        # Другие HTML страницы
-├── .env.local                        # Локальные переменные окружения
-├── .gitignore                        # Исключения для Git
-├── .prettierignore                   # Исключения для Prettier
-├── .prettierrc.cjs                   # Конфигурация Prettier
-├── .stylelintignore                  # Исключения для Stylelint
-├── .stylelintrc                      # Конфигурация Stylelint
-├── deploy.js                         # Скрипт для деплоя
-├── eslint.config.js                  # Конфигурация ESLint
-├── package-lock.json                 # Блокировка зависимостей npm
-├── package.json                      # Конфигурация и зависимости проекта
-├── README.md                         # Документация проекта
-└── vite.config.js                    # Конфигурация Vite
-```
 
 ## Соглашения
 
