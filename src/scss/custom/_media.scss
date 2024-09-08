@@ -1,5 +1,3 @@
-// @use "sass:math";
-
 $breakpoints: (
   xs: 0,
   sm: 576px,
@@ -22,6 +20,6 @@ $breakpoints: (
     }
   } @else {
     @warn "Breakpoint #{$breakpoint} is not defined in the $breakpoints map.";
-    /* stylelint-enable scss/no-global-function-names */
   }
+  /* stylelint-enable scss/no-global-function-names */
 }
