@@ -11,6 +11,7 @@ import handlebars from 'vite-plugin-handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import autoprefixer from 'autoprefixer';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
@@ -52,6 +53,9 @@ export default defineConfig({
   },
 
   plugins: [
+    viteStaticCopy({
+      targets: [{ src: 'assets/data/*.json', dest: 'data' }],
+    }),
     handlebars({
       partialDirectory: resolve(__dirname, './src/components'),
       context(pagePath) {
