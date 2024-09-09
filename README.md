@@ -116,6 +116,10 @@ root/
 
 1. [Начало работы со сборкой](/README/getting-started.md)
 2. [Базовые стили](/README/basic-styles.md)
+3. TODO: handlebars
+4. TODO: создание страниц, подключение хранилищ
+5. TODO: структура `/src/js/`
+6. TODO: поддержка и обновление зависимостей (?)
 
 ## Соглашения
 
@@ -123,3 +127,5 @@ root/
 
 - [Изображения](/README/conventions-images.md)
 - [Шрифты](/README/conventions-fonts.md)
+- TODO: Ведение документации
+- TODO: Git, [Conventional Commits](https://www.conventionalcommits.org/ru/v1.0.0/)
