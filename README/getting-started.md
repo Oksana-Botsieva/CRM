@@ -86,3 +86,8 @@
 - очистите файл `/src/scss/custom/_typography.scss` или настройте базовую типографику под ваш проект.
 - очистите файл `/src/scss/custom/_variables.scss` или настройте переменные под ваш проект.
   > ⚠️ Важно! Переменные `$transition-func` и `$transition-duration` используются как значения по умолчанию в миксине `transition`.
+
+Опционально:
+
+- удалите файл `/src/components/elements/button.hbs`.
+- удалите файл `/src/scss/elements/_button.scss`.
