@@ -64,6 +64,7 @@ root/
 │   │   │   ├── _functions.scss       # Функции
 │   │   │   ├── _mixins.scss          # Миксины
 │   │   │   └── _null.scss            # Обнуляющие стили
+│   │   ├── sections/                 # Стили секций
 │   │   ├── vendor/                   # Вендорные стили
 │   │   └── styles.scss               # Главный SCSS файл
 │   ├── stores/                       # Хранилища состояния
