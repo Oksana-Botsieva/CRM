@@ -23,8 +23,6 @@
 
 ### Гайды
 
-На этой странице собраны руководства и рекомендации для работы с проектом Sborka. Эти гайды помогут вам быстро освоиться с основными инструментами и методами, используемыми в сборке, и предоставят практические советы по настройке и интеграции.
-
 - [Начало работы со сборкой](https://gitlab.com/relevant-team/sborka/-/wikis/home/get-started)
   - [Получение файлов сборки](https://gitlab.com/relevant-team/sborka/-/wikis/home/get-started/get-files)
   - [Очистка проекта](https://gitlab.com/relevant-team/sborka/-/wikis/home/get-started/cleaning-project)
