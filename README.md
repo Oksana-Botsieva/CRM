@@ -14,29 +14,4 @@
 
 ## Wiki
 
-Подробнее о сборке на страницах [Wiki](https://gitlab.com/relevant-team/sborka/-/wikis/home):
-
-- [Версионность](https://gitlab.com/relevant-team/sborka/-/wikis/home/versionability)
-- [Файловая структура](https://gitlab.com/relevant-team/sborka/-/wikis/home/file-structure)
-- [Скрипты](https://gitlab.com/relevant-team/sborka/-/wikis/home/scripts)
-- [Работа с NPM](https://gitlab.com/relevant-team/sborka/-/wikis/home/npm-work)
-
-### Гайды
-
-- [Начало работы со сборкой](https://gitlab.com/relevant-team/sborka/-/wikis/home/get-started)
-  - [Получение файлов сборки](https://gitlab.com/relevant-team/sborka/-/wikis/home/get-started/get-files)
-  - [Очистка проекта](https://gitlab.com/relevant-team/sborka/-/wikis/home/get-started/cleaning-project)
-- [Базовые стили](<[sborka/basic-styles](https://gitlab.com/relevant-team/sborka/-/wikis/home/basic-styles)>)
-- TODO: handlebars
-- TODO: создание страниц, подключение хранилищ
-- TODO: структура `/src/js/`
-- TODO: поддержка и обновление зависимостей (?)
-
-### Соглашения
-
-Эти соглашения помогают поддерживать порядок и единообразие в проекте. Следуя этим рекомендациям, мы обеспечиваем легкость в управлении проектом и поддержку высокого качества кода.
-
-- [Изображения](https://gitlab.com/relevant-team/sborka/-/wikis/home/conventions/images-conventions)
-- [Шрифты](https://gitlab.com/relevant-team/sborka/-/wikis/home/conventions/fonts-conventions)
-- TODO: Ведение документации
-- TODO: Git, [Conventional Commits](https://www.conventionalcommits.org/ru/v1.0.0/)
+Подробнее о сборке на страницах [Wiki](https://gitlab.com/relevant-team/sborka/-/wikis/home).
