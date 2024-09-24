@@ -11,6 +11,7 @@ import handlebars from 'vite-plugin-handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import autoprefixer from 'autoprefixer';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
@@ -52,6 +53,9 @@ export default defineConfig({
   },
 
   plugins: [
+    viteStaticCopy({
+      targets: [{ src: 'assets/data/*.json', dest: 'data' }],
+    }),
     handlebars({
       partialDirectory: resolve(__dirname, './src/components'),
       context(pagePath) {
@@ -133,7 +137,9 @@ export default defineConfig({
     outDir: '../dist',
     emptyOutDir: true,
     assetsInlineLimit: 0,
-    polyfillModulePreload: false, // Отключение Module Preload
+    modulePreload: {
+      polyfill: false,
+    },
     rollupOptions: {
       input: Object.fromEntries(
         fg
@@ -148,14 +154,15 @@ export default defineConfig({
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
           let extType = info[info.length - 1];
+          let path = '';
           if (/webp|jpg|jpeg|svg|gif|tiff|png|ico/i.test(extType)) {
+            const { originalFileName, name } = assetInfo;
+            path = originalFileName.replace('assets/images/', '').replace(name, '');
             extType = 'images';
           } else if (/woff|woff2/.test(extType)) {
             extType = 'fonts';
-          } else if (/svg/.test(extType)) {
-            extType = 'svg';
           }
-          return `${extType}/[name][extname]`;
+          return `${extType}/${path}[name][extname]`;
         },
         chunkFileNames: 'js/[name].js',
         entryFileNames: () => 'js/main.js',
