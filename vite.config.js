@@ -35,6 +35,7 @@ export default defineConfig({
   },
 
   root: resolve(__dirname, 'src'),
+  publicDir: resolve(__dirname, 'src/assets'),
 
   server: {
     host: '0.0.0.0',
