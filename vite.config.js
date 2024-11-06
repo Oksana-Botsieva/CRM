@@ -127,8 +127,8 @@ export default defineConfig({
           }
           return 'assets/[name][extname]';
         },
-        chunkFileNames: 'js/[name].js',
-        entryFileNames: () => 'js/main.js',
+        chunkFileNames: '[name].js',
+        entryFileNames: () => 'main.js',
       },
     },
   },
