@@ -123,12 +123,12 @@ export default defineConfig({
         compact: true,
         assetFileNames: (assetInfo) => {
           if (assetInfo.name.endsWith('.css')) {
-            return 'style.css';
+            return 'styles/style.css';
           }
           return 'assets/[name][extname]';
         },
-        chunkFileNames: '[name].js',
-        entryFileNames: () => 'main.js',
+        chunkFileNames: 'js/[name].js',
+        entryFileNames: () => 'js/main.js',
       },
     },
   },
