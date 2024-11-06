@@ -122,17 +122,10 @@ export default defineConfig({
       output: {
         compact: true,
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.');
-          let extType = info[info.length - 1];
-          let path = '';
-          if (/webp|jpg|jpeg|svg|gif|tiff|png|ico/i.test(extType)) {
-            const { originalFileName, name } = assetInfo;
-            path = originalFileName.replace('assets/images/', '').replace(name, '');
-            extType = 'images';
-          } else if (/woff|woff2/.test(extType)) {
-            extType = 'fonts';
+          if (assetInfo.name.endsWith('.css')) {
+            return 'style.css';
           }
-          return `${extType}/${path}[name][extname]`;
+          return 'assets/[name][extname]';
         },
         chunkFileNames: 'js/[name].js',
         entryFileNames: () => 'js/main.js',
