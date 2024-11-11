@@ -94,31 +94,12 @@ a {
   }
 }
 
-.unordered__list {
+ul {
   padding-left: px-to-rem(15);
   list-style-type: square;
 
-  &_item {
-    margin: 0.5rem 0;
-  }
-}
-
-.ordered__list {
-  margin-top: px-to-rem(16);
-  padding-left: px-to-rem(24);
-  list-style-type: decimal;
-
-  &_item {
-    margin: 8px 0;
-  }
-}
-
-.nested__list {
-  padding-left: px-to-rem(24);
-
   li {
-    margin: 8px 0;
-    list-style-type: square;
+    margin: 0.5rem 0;
   }
 
   ul {
@@ -128,9 +109,23 @@ a {
   }
 }
 
+ol {
+  margin-top: px-to-rem(16);
+  padding-left: px-to-rem(24);
+  list-style-type: decimal;
+
+  li {
+    margin: 8px 0;
+  }
+}
+
 hr {
   height: 1px;
   margin-top: 16px;
   background-color: $text;
   border: none;
+}
+
+.typography__content-item {
+  margin-bottom: 40px;
 }
