@@ -11,15 +11,6 @@ body,
   }
 }
 
-.typography__content {
-  padding-top: 30px;
-}
-
-.section__typography {
-  margin-bottom: px-to-rem(32);
-  padding: px-to-rem(15);
-}
-
 .heading,
 h1,
 h2,
@@ -117,15 +108,4 @@ ol {
   li {
     margin: 8px 0;
   }
-}
-
-hr {
-  height: 1px;
-  margin-top: 16px;
-  background-color: $text;
-  border: none;
-}
-
-.typography__content-item {
-  margin-bottom: 40px;
 }
