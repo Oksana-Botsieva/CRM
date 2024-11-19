@@ -11,7 +11,13 @@ body,
   }
 }
 
-.heading {
+.heading,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   color: $text;
@@ -55,4 +61,51 @@ h6,
 
 a {
   color: $primary;
+}
+
+.blockquote {
+  width: fit-content;
+  margin: 40px 0;
+  padding: px-to-rem(20);
+
+  .quote-text {
+    margin-bottom: 15px;
+    padding-left: 20px;
+
+    font-family: "Inria Serif", sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .quote-author {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: right;
+  }
+}
+
+ul {
+  padding-left: px-to-rem(15);
+  list-style-type: square;
+
+  li {
+    margin: 0.5rem 0;
+  }
+
+  ul {
+    margin-bottom: px-to-rem(15);
+    padding-left: px-to-rem(24);
+    list-style-type: circle;
+  }
+}
+
+ol {
+  margin-top: px-to-rem(16);
+  padding-left: px-to-rem(24);
+  list-style-type: decimal;
+
+  li {
+    margin: 8px 0;
+  }
 }

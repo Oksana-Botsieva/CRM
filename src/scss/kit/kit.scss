@@ -1,0 +1,21 @@
+// typography-page start
+.typography__content {
+  padding-top: 30px;
+}
+
+.section__typography {
+  margin-bottom: px-to-rem(32);
+  padding: px-to-rem(15);
+}
+
+.typography__content-item {
+  margin-bottom: 40px;
+}
+
+hr {
+  height: 1px;
+  margin-top: 16px;
+  background-color: $text;
+  border: none;
+}
+// typography-page end
