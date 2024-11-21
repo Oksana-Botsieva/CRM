@@ -1,0 +1,13 @@
+{
+  "status": "fail",
+  "errors": [
+    {
+      "name": "email",
+      "text": "Что-то пошло не так"
+    },
+    {
+      "name": "message",
+      "text": "Что-то пошло не так"
+    }
+  ]
+}
