@@ -23,6 +23,7 @@ export default [
       eqeqeq: ['error', 'always'],
       semi: ['error', 'always'],
       quotes: ['error', 'single'],
+      'no-constant-binary-expression': 'off',
     },
   },
 ];

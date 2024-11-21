@@ -8,6 +8,7 @@ import { URL } from 'url';
 import dotenv from 'dotenv';
 
 import handlebars from 'vite-plugin-handlebars';
+import Handlebars from 'handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import autoprefixer from 'autoprefixer';
@@ -15,6 +16,10 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
+
+Handlebars.registerHelper('eq', function (a, b) {
+  return a === b;
+});
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -35,6 +40,7 @@ export default defineConfig({
   },
 
   root: resolve(__dirname, 'src'),
+
   publicDir: resolve(__dirname, 'src/assets'),
 
   server: {
@@ -54,15 +60,17 @@ export default defineConfig({
   },
 
   plugins: [
-    viteStaticCopy({
-      targets: [{ src: 'assets/data/*.json', dest: 'data' }],
-    }),
     handlebars({
       partialDirectory: resolve(__dirname, './src/components'),
       context(pagePath) {
         return { ...pageData[pagePath], ...context };
       },
     }),
+
+    viteStaticCopy({
+      targets: [{ src: 'assets/data/*.json', dest: 'data' }],
+    }),
+
     ViteImageOptimizer({
       png: {
         // https://sharp.pixelplumbing.com/api-output#png
@@ -92,6 +100,7 @@ export default defineConfig({
         lossless: true,
       },
     }),
+
     stylelintPlugin({
       files: ['src/**/*.css', 'src/**/*.scss'],
       fix: false,
@@ -125,10 +134,10 @@ export default defineConfig({
           if (assetInfo.name.endsWith('.css')) {
             return 'styles/style.css';
           }
+
           return 'assets/[name][extname]';
         },
         chunkFileNames: 'js/[name].js',
-        entryFileNames: () => 'js/main.js',
       },
     },
   },

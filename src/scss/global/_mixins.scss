@@ -8,9 +8,9 @@
     font-display: swap;
 
     @if $local {
-      src: local($local), url(fonts/#{woff2}), url(fonts/#{$woff});
+      src: local($local), url("fonts/#{woff2}"), url("fonts/#{$woff}");
     } @else {
-      src: url(fonts/#{$woff2}), url(fonts/#{$woff});
+      src: url("fonts/#{$woff2}"), url("fonts/#{$woff}");
     }
   }
 }
