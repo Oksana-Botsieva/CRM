@@ -1,32 +1,52 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
+// import js from '@eslint/js';
+// import globals from 'globals';
 
-/** @type {import('eslint').Linter.Config} */
-export default {
-  root: true, // Это указывает ESLint, что это основной конфигурационный файл
-  parserOptions: {
-    ecmaVersion: 2020, // Версия ECMAScript
-    sourceType: 'module', // Для использования import/export
-  },
-  env: {
-    browser: true, // Включение глобальных переменных для браузера
-    node: true, // Включение глобальных переменных для Node.js
-  },
-  globals: globals.browser, // Глобальные переменные для браузера
-  extends: [
-    'eslint:recommended', // Базовые правила ESLint
-    'plugin:prettier/recommended', // Подключаем Prettier
-  ],
-  rules: {
-    semi: ['error', 'always'], // Требование точек с запятой
-    quotes: ['error', 'single'], // Использование одинарных кавычек
-  },
-  overrides: [
-    {
-      files: ['*.js', '*.jsx'],
-      rules: {
-        'no-console': 'warn', // Предупреждения о console.log
+// /** @type {import("eslint").Linter.FlatConfig[]} */
+// export default [
+//   {
+//     languageOptions: {
+//       sourceType: 'module', // Используем ECMAScript модули (ESM)
+//       globals: {
+//         ...globals.browser, // Глобальные переменные браузера
+//         ...globals.node, // Глобальные переменные Node.js
+//       },
+//     },
+//     rules: {
+//       semi: ['error', 'always'], // Всегда использовать точки с запятой
+//       quotes: ['error', 'double'], // Двойные кавычки
+//       'no-unused-vars': 'warn', // Предупреждение о неиспользуемых переменных
+//       'no-console': 'warn', // Разрешаем `console.log`
+//     },
+//   },
+//   js.configs.recommended, // Встроенные правила JavaScript
+// ];
+
+import js from '@eslint/js';
+import globals from 'globals';
+import { includeIgnoreFile } from '@eslint/compat';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default [
+  js.configs.recommended,
+  includeIgnoreFile(path.resolve(__dirname, '.gitignore')),
+  {
+    files: ['src/**/*', 'deploy.js'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
       },
     },
-  ],
-};
+    rules: {
+      'no-console': ['warn'],
+      eqeqeq: ['error', 'always'],
+      semi: ['error', 'always'],
+      quotes: ['error', 'single'],
+      'no-constant-binary-expression': 'off',
+    },
+  },
+];
