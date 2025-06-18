@@ -3,9 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "browserslist": [
-    "> 0.5%, last 2 versions, Firefox ESR, not dead"
-  ],
+  "browserslist": ["> 0.5%, last 2 versions, Firefox ESR, not dead"],
   "scripts": {
     "prepare": "husky",
     "lint": "eslint --fix . && prettier --write . && stylelint src/scss/**/*.scss --fix",
