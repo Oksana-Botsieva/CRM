@@ -43,7 +43,7 @@ export default defineConfig({
 
   server: {
     host: true, // чтобы сервер был доступен по IP
-    port: 3000,
+    port: 3050,
     open: true,
   },
 

@@ -8,18 +8,18 @@ process.env.NODE_ENV = 'test';
 
 const axios = Axios.create({
   baseURL: `http://localhost:${process.env.PORT}/api/clients/`,
-  validateStatus: status => status < 500,
+  validateStatus: (status) => status < 500,
   headers: {
     'Content-Type': 'application/json',
-    Accept: 'application/json'
-  }
+    Accept: 'application/json',
+  },
 });
 
 let appServer;
 
 beforeAll(async () => {
   appServer = require('./index');
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     appServer.on('listening', () => resolve());
   });
 });
@@ -27,7 +27,7 @@ beforeAll(async () => {
 afterAll(() => {
   // wipe database
   unlinkSync(process.env.DB_FILE);
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     appServer.close(() => resolve());
   });
 });
@@ -43,20 +43,19 @@ const client = {
   contacts: [
     {
       type: 'Phone',
-      value: '+71234567890'
-    }
-  ]
+      value: '+71234567890',
+    },
+  ],
 };
 const searchValue = 'abcdefGHijKLmnOPqrstuvwxyz';
 const searchQuery = 'ghIJklmnopqr';
 
 function autoData(from) {
-  return ['id', 'createdAt', 'updatedAt']
-    .reduce((obj, prop) => ({ ...obj, [prop]: from[prop] }), {});
+  return ['id', 'createdAt', 'updatedAt'].reduce((obj, prop) => ({ ...obj, [prop]: from[prop] }), {});
 }
 
 function waitASecond() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(resolve, 1000);
   });
 }
@@ -70,7 +69,7 @@ describe('Clients API', () => {
   });
 
   it('POST /api/clients should return error descriptions with 422 status on validation error', async () => {
-    const res = await axios.post('', { name: 'Srsly? Only name?'});
+    const res = await axios.post('', { name: 'Srsly? Only name?' });
     expect(res.status).toBe(422);
     expect(Array.isArray(res.data.errors)).toBe(true);
     expect(res.data.errors.length).toBeGreaterThan(0);
@@ -81,11 +80,7 @@ describe('Clients API', () => {
   });
 
   it('GET /api/clients should return a list of clients with 200 status', async () => {
-    const requests = [
-      axios.post('', client),
-      axios.post('', client),
-      axios.post('', client),
-    ];
+    const requests = [axios.post('', client), axios.post('', client), axios.post('', client)];
     await Promise.all(requests);
     const res = await axios.get('');
     expect(res.status).toBe(200);
@@ -107,33 +102,30 @@ describe('Clients API', () => {
   }
 
   for (const field of ['name', 'surname', 'lastName']) {
-    it(
-      `GET /api/clients should search by ${field} substring`,
-      () => checkSearch(field, searchValue, searchQuery)
-    );
+    it(`GET /api/clients should search by ${field} substring`, () => checkSearch(field, searchValue, searchQuery));
   }
 
-  it(
-    `GET /api/clients should search by any contact value substring`,
-    () => checkSearch(
+  it(`GET /api/clients should search by any contact value substring`, () =>
+    checkSearch(
       'contacts',
       [
         { type: 'Whatever', value: '123' },
-        { type: 'Alphabet', value: searchValue }
+        { type: 'Alphabet', value: searchValue },
       ],
-      searchQuery
-    )
-  );
+      searchQuery,
+    ));
 
   it('GET /api/clients/{id} should return a client object with 200 status', async () => {
-    const { data: { id } } = await axios.post('', client);
+    const {
+      data: { id },
+    } = await axios.post('', client);
     const res = await axios.get(id);
     expect(res.status).toBe(200);
     expect(res.data).toEqual({ ...client, ...autoData(res.data) });
   });
 
   it('GET /api/clients/{id} should fail with 404 status for inexistent client ID', async () => {
-    const res = await axios.get('i don\'t know this guy');
+    const res = await axios.get("i don't know this guy");
     expect(res.status).toBe(404);
   });
 
@@ -160,7 +152,9 @@ describe('Clients API', () => {
   });
 
   it('PATCH /api/clients/{id} should return error descriptions with 422 status on validation error', async () => {
-    const { data: { id } } = await axios.post('', client);
+    const {
+      data: { id },
+    } = await axios.post('', client);
 
     const res = await axios.patch(id, { name: undefined, surname: null });
     expect(res.status).toBe(422);
@@ -173,12 +167,14 @@ describe('Clients API', () => {
   });
 
   it('PATCH /api/clients/{id} should fail with 404 status for inexistent client ID', async () => {
-    const res = await axios.patch('i don\'t know this guy', { name: 'John' });
+    const res = await axios.patch("i don't know this guy", { name: 'John' });
     expect(res.status).toBe(404);
   });
 
   it('DELETE /api/clients/{id} should delete a client with 200 status', async () => {
-    const { data: { id } } = await axios.post('', client);
+    const {
+      data: { id },
+    } = await axios.post('', client);
     const res = await axios.delete(id);
     expect(res.status).toBe(200);
     const { status } = await axios.get(id);

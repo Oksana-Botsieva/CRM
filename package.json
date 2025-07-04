@@ -14,12 +14,17 @@
     "lint": "eslint --fix . && prettier --write . && stylelint \"src/**/*.{css,scss}\" --fix",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest",
+    "start:api": "node server/index.cjs",
+    "start:dev": "vite",
+    "start": "concurrently \"npm run start:api\" \"npm run start:dev\""
   },
   "devDependencies": {
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^3.1.0",
     "autoprefixer": "^10.4.20",
+    "concurrently": "^9.2.0",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "globals": "^16.2.0",
@@ -34,5 +39,8 @@
     "vite": "^5.4.1",
     "vite-plugin-handlebars": "^2.0.0",
     "vite-plugin-stylelint": "^5.3.1"
+  },
+  "dependencies": {
+    "axios": "^1.10.0"
   }
 }
